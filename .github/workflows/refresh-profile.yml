@@ -1,0 +1,53 @@
+name: Refresh the chemistry study
+
+on:
+  schedule:
+    - cron: '17 10 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refresh-profile.yml'
+      - 'scripts/update-stats.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-artwork
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out profile
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 1
+      - name: Refresh the reading ledger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/update-stats.py
+      - name: Grow the contribution snake
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          outputs: |
+            assets/snake-light.svg?color_snake=%23a67a46&color_dots=%23eeece3,%23c6d6bd,%238dac89,%235c8065,%232e5744&color_dot_border=%23dedbcf
+            assets/snake-dark.svg?palette=github-dark&color_snake=%23c6a273&color_dots=%23212f27,%2337503c,%235a795b,%2380a17b,%23b0c99f&color_dot_border=%2336473d
+      - name: Save refreshed artwork
+        env:
+          PROFILE_OWNER: ${{ github.repository_owner }}
+        run: |
+          git config user.name "$PROFILE_OWNER"
+          git config user.email "173298303+FelixJiashengFu@users.noreply.github.com"
+          git add assets/ledger-*.svg assets/snake-*.svg
+          if git diff --cached --quiet; then
+            echo "Artwork is already current."
+            exit 0
+          fi
+          git commit -m "Refresh contribution artwork"
+          git push origin HEAD:main

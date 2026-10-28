@@ -62,7 +62,7 @@
 
 ### The reading room · 研究导航
 
-<p align="center"><a href="https://molastria.com/"><b>ChemResearch Hub</b></a> — 1,465 computational-chemistry resources, 19 guide chapters in Chinese, and a closed-loop AI lab for electrolyte discovery.<br><sub>计算化学研究导航：数据库、教程与论文一处检索；<a href="https://molastria.com/lab/">AI 实验室</a>用 DeepSeek / Muse 提出电解液溶剂分子 · <a href="https://github.com/FelixJiashengFu/chem-research-hub">源码</a></sub></p>
+<p align="center"><a href="https://molastria.com/"><b>MolAstria</b></a> — 1,465 computational-chemistry resources, 19 guide chapters in Chinese, and a closed-loop AI lab for electrolyte discovery.<br><sub>计算化学研究导航：数据库、教程与论文一处检索；<a href="https://molastria.com/lab/">AI 实验室</a>用 DeepSeek / Muse 提出电解液溶剂分子 · <a href="https://github.com/FelixJiashengFu/chem-research-molastria">源码</a></sub></p>
 
 ## On my desk · 案头工具
 

@@ -66,7 +66,7 @@
 
 ### Notes in the margins · 数理札记
 
-<p align="center"><a href="https://github.com/FelixJiashengFu/Complex-Analysis-Graph">Complex analysis</a> &nbsp; / &nbsp; <a href="https://github.com/FelixJiashengFu/pde-visualization">PDE visualizations</a> &nbsp; / &nbsp; <a href="https://github.com/FelixJiashengFu/statistical-mechanics">Statistical mechanics</a> &nbsp; / &nbsp; <a href="https://github.com/FelixJiashengFu/PHYB57-Study-Library">PHYB57 study library</a></p>
+<p align="center"><a href="https://github.com/FelixJiashengFu/Complex-Analysis-Graph">Complex analysis</a> &nbsp; / &nbsp; <a href="https://github.com/FelixJiashengFu/pde-visualization">PDE visualizations</a> &nbsp; / &nbsp; <a href="https://github.com/FelixJiashengFu/statistical-mechanics">Statistical mechanics</a></p>
 
 ### The reading room · 研究导航
 

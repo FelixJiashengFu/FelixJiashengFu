@@ -47,13 +47,21 @@
   <img alt="Molecular Symmetry Graph — 三维分子模型、对称操作与点群" src="./assets/volume-symmetry-light.svg" width="100%">
 </picture></a></td>
 </tr>
+<tr>
+<td colspan="2"><a href="https://molastria.com/"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/volume-molastria-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/volume-molastria-light.svg">
+  <img alt="MolAstria — 计算化学研究导航：2,600 多条资源、20 章中英双语讲解手册、15 个在线机器学习势、28 个预印本平台" src="./assets/volume-molastria-light.svg" width="100%">
+</picture></a></td>
+</tr>
 </table>
 
 <p align="center">
   <a href="https://github.com/FelixJiashengFu/NMR-Graph">NMR</a> ·
   <a href="https://github.com/FelixJiashengFu/Organic-Chemistry-Graph">Organic chemistry</a> ·
   <a href="https://github.com/FelixJiashengFu/mass-spectrometry">Mass spectrometry</a> ·
-  <a href="https://github.com/FelixJiashengFu/Molecular-Symmetry-Graph">Molecular symmetry</a>
+  <a href="https://github.com/FelixJiashengFu/Molecular-Symmetry-Graph">Molecular symmetry</a> ·
+  <a href="https://molastria.com/">MolAstria</a>
 </p>
 
 ### Notes in the margins · 数理札记
@@ -62,14 +70,16 @@
 
 ### The reading room · 研究导航
 
-<p align="center"><a href="https://molastria.com/"><b>MolAstria</b></a> — 1,465 computational-chemistry resources, 19 guide chapters in Chinese, and a closed-loop AI lab for electrolyte discovery.<br><sub>计算化学研究导航：数据库、教程与论文一处检索；<a href="https://molastria.com/lab/">AI 实验室</a>用 DeepSeek / Muse 提出电解液溶剂分子 · <a href="https://github.com/FelixJiashengFu/chem-research-molastria">源码</a></sub></p>
+<p align="center"><a href="https://molastria.com/"><b>MolAstria</b></a> — 2,600+ computational-chemistry resources from 24 sources, refreshed every Thursday; a 20-chapter handbook in Chinese and English; 15 machine-learning potentials you can run online; a closed-loop AI lab for electrolyte discovery; and a Windows / macOS desktop app.<br><sub>计算化学研究导航：数据库、教程、期刊与论文一处检索，27 个科学大模型对比，28 个平台的预印本雷达，量子化学游乐场；<a href="https://molastria.com/lab/">AI 实验室</a>用 DeepSeek / Muse 提出电解液溶剂分子 · <a href="https://github.com/FelixJiashengFu/chem-research-molastria/releases/latest">桌面版</a> · <a href="https://github.com/FelixJiashengFu/chem-research-molastria">源码</a></sub></p>
 
 ## On my desk · 案头工具
+
+<sub>The bench is for thinking and calculating; the workshop is where MolAstria gets built and shipped.</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/toolkit-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/toolkit-light.svg">
-  <img alt="Python · Jupyter · NumPy · Matplotlib · LaTeX · HTML / SVG · Git and GitHub" src="./assets/toolkit-light.svg" width="100%">
+  <img alt="Python, Jupyter, NumPy, Matplotlib, RDKit, PySCF, UMA · MACE, LaTeX, JavaScript, Deno, Cloudflare, Tauri · Rust, Playwright, GitHub Actions, DeepSeek, ffmpeg" src="./assets/toolkit-light.svg" width="100%">
 </picture>
 
 ## A living trail · 贡献游踪

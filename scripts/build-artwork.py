@@ -255,26 +255,39 @@ def header(c):
 
     # Ex libris plate
     cx = 1000
-    p += bookplate_frame(822.5, 20.5, 355, 329, 14, c['gold'], .9, .55)
-    p += bookplate_frame(828.5, 26.5, 343, 317, 10, c['line'], .8)
-    p += text('EX LIBRIS', cx, 55, 11, c['muted'], 'sans', 3.2, 'middle')
-    p += f'<path d="M918 51H938M1062 51H1082" stroke="{c["gold"]}" stroke-width=".8" opacity=".8"/>'
-    ry = 142
-    # astrolabe ring: two hairlines with a graduated scale between them
-    p += f'<circle cx="{cx}" cy="{ry}" r="74" fill="none" stroke="{c["line"]}"/>'
-    p += f'<circle cx="{cx}" cy="{ry}" r="66" fill="none" stroke="{c["line"]}" stroke-width=".8"/>'
+    p += bookplate_frame(822.5, 20.5, 355, 329, 14, c['gold'], 1.2, .8)
+    p += bookplate_frame(828.5, 26.5, 343, 317, 10, c['line'], 1)
+    p += text('EX LIBRIS', cx, 48, 11, c['muted'], 'sans', 3.2, 'middle')
+    p += f'<path d="M918 44H938M1062 44H1082" stroke="{c["gold"]}" stroke-width=".8" opacity=".8"/>'
+    ry = 140
+    # astrolabe ring: two hairlines with a graduated scale, cardinal lozenges
+    p += f'<circle cx="{cx}" cy="{ry}" r="82" fill="none" stroke="{c["gold"]}" stroke-width="1.1" opacity=".75"/>'
+    p += f'<circle cx="{cx}" cy="{ry}" r="73" fill="none" stroke="{c["line"]}" stroke-width="1"/>'
     ticks = ''
     for k in range(72):
-        a = math.radians(k * 5)
-        long = k % 6 == 0
-        r1, r2 = (66, 74) if long else (66, 69.5)
+        a = math.radians(k * 5 - 90)
+        r1, r2 = (73, 82) if k % 6 == 0 else (73, 77)
         ticks += f'M{cx + r1 * math.cos(a):.2f} {ry + r1 * math.sin(a):.2f}L{cx + r2 * math.cos(a):.2f} {ry + r2 * math.sin(a):.2f}'
-    p += f'<path d="{ticks}" stroke="{c["gold"]}" stroke-width=".7" opacity=".7"/>'
-    p += kekule(cx, ry, 44, c['green'], 1.8, 1.3, -90)
-    p += ''.join(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="2.3" fill="{c["panel"]}" stroke="{c["gold"]}" stroke-width="1"/>' for x, y in hexagon(cx, ry, 44, -90))
-    p += sparkle(cx + 58, ry - 58, 7.5, c['gold'])
-    p += f'<circle cx="{cx - 66}" cy="{ry + 40}" r="1.5" fill="{c["gold"]}" opacity=".85"/>'
-    p += formula([('C', False), ('6', True), ('H', False), ('6', True)], cx, 240, 15, c['muted'])
+    p += f'<path d="{ticks}" stroke="{c["gold"]}" stroke-width=".8" opacity=".75"/>'
+    for a in (0, 90, 180, 270):
+        p += lozenge(cx + 82 * math.cos(math.radians(a)), ry + 82 * math.sin(math.radians(a)), 3.4, c['gold'])
+    # a pi molecular orbital of benzene: six p lobes with alternating phase (three nodal planes)
+    rr, lobe, wide = 30, 34, 9.5
+    for i, (x, y) in enumerate(hexagon(cx, ry, rr, -90)):
+        ang = i * 60 - 90
+        lx, ly = cx + (rr + lobe / 2) * math.cos(math.radians(ang)), ry + (rr + lobe / 2) * math.sin(math.radians(ang))
+        if i % 2 == 0:
+            style = f'fill="{c["green"]}" fill-opacity=".38" stroke="{c["green"]}" stroke-width="1.3"'
+        else:
+            style = f'fill="{c["gold"]}" fill-opacity=".14" stroke="{c["gold"]}" stroke-width="1.3"'
+        p += f'<ellipse cx="{lx:.2f}" cy="{ly:.2f}" rx="{lobe / 2}" ry="{wide}" transform="rotate({ang} {lx:.2f} {ly:.2f})" {style}/>'
+    # delocalised pi density as contour lines inside the ring
+    for r, op in ((21, .9), (15, .65), (9, .45)):
+        p += f'<circle cx="{cx}" cy="{ry}" r="{r}" fill="none" stroke="{c["green"]}" stroke-width=".9" opacity="{op}"/>'
+    p += f'<polygon points="{poly(hexagon(cx, ry, rr, -90))}" fill="none" stroke="{c["ink"]}" stroke-width="2" stroke-linejoin="round" opacity=".85"/>'
+    p += ''.join(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="2.6" fill="{c["panel"]}" stroke="{c["gold"]}" stroke-width="1.2"/>' for x, y in hexagon(cx, ry, rr, -90))
+    p += f'<circle cx="{cx}" cy="{ry}" r="1.6" fill="{c["gold"]}"/>'
+    p += formula([('C', False), ('6', True), ('H', False), ('6', True), ('  ·  π', False)], cx, 245, 14, c['muted'])
     # open book with page edges and a ribbon
     p += f'<g fill="none" stroke="{c["gold"]}" stroke-linejoin="round" stroke-linecap="round">'
     p += '<path stroke-width="1.4" d="M872 262Q936 244 1000 268Q1064 244 1128 262V306Q1064 290 1000 313Q936 290 872 306Z"/>'
@@ -283,7 +296,7 @@ def header(c):
         dy = i * 9
         p += f'<path stroke-width=".7" opacity=".7" d="M884 {273 + dy}Q938 {260 + dy} 988 {278 + dy}M1012 {278 + dy}Q1062 {260 + dy} 1116 {273 + dy}"/>'
     p += '</g>'
-    p += f'<path d="M1006 270V324L1010.5 319L1015 324V267" fill="{c["green"]}" opacity=".7"/>'
+    p += f'<path d="M995.5 268V324L1000 319L1004.5 324V268" fill="{c["green"]}" opacity=".75"/>'
     p += text('READ  ·  QUESTION  ·  MAKE', cx, 336, 10, c['muted'], 'sans', 1.6, 'middle')
     return p
 
@@ -338,7 +351,7 @@ TOOL_LIST = ', '.join(label for _, label, _ in BENCH + WORKSHOP)
 
 for theme, c in PALETTES.items():
     (ASSETS / f'header-{theme}.svg').write_text(svg(1200, 370, 'Jiasheng Fu · 化学书房', header(c),
-        'Molecules, manuscripts & a little code. An ex libris plate: a benzene ring inside a graduated ring, a small star, and an open book with a ribbon.'))
+        'Molecules, manuscripts & a little code. An ex libris plate: a pi molecular orbital of benzene inside a graduated ring, above an open book with a ribbon.'))
     for slug, number, title, chinese, subtitle, category in CARDS:
         p = volume_card(c, 580, 218, number, category, title, chinese, subtitle, 'OPEN THE VOLUME', EMBLEMS[slug](c))
         (ASSETS / f'volume-{slug}-{theme}.svg').write_text(svg(580, 218, title, p, chinese + ' — ' + subtitle))

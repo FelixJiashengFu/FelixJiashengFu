@@ -369,6 +369,11 @@ def picture(slug, alt, width='100%'):
 </picture>'''
 
 
+README_PATH = ROOT / 'README.md'
+_old = README_PATH.read_text() if README_PATH.exists() else ''
+_m = re.search(r'<!-- focus:start -->.*?<!-- focus:end -->', _old, re.S)
+FOCUS = _m.group(0) if _m else '<!-- focus:start -->\n<!-- focus:end -->'  # kept as-is; refreshed by update-focus.py
+
 readme = f'''<!-- Static artwork is kept in this repository. Daily contribution artwork is refreshed by GitHub Actions. -->
 <p align="center">{picture('header','Jiasheng Fu · 化学书房 — Molecules, manuscripts and a little code.')}</p>
 
@@ -397,6 +402,7 @@ readme = f'''<!-- Static artwork is kept in this repository. Daily contribution 
 <tr>
 <td colspan="2"><a href="https://molastria.com/">{picture('volume-molastria','MolAstria — 计算化学研究导航：2,600 多条资源、20 章中英双语讲解手册、15 个在线机器学习势、28 个预印本平台')}</a></td>
 </tr>
+{FOCUS}
 </table>
 
 <p align="center">

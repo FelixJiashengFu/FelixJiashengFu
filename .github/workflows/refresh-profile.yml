@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/refresh-profile.yml'
       - 'scripts/update-stats.py'
+      - 'scripts/update-focus.py'
 
 permissions:
   contents: write
@@ -30,6 +31,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update-stats.py
+      - name: Set out what is on the bench
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/update-focus.py
       - name: Grow the contribution snake
         uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
         with:
@@ -44,7 +49,7 @@ jobs:
         run: |
           git config user.name "$PROFILE_OWNER"
           git config user.email "173298303+FelixJiashengFu@users.noreply.github.com"
-          git add assets/ledger-*.svg assets/snake-*.svg
+          git add assets/ledger-*.svg assets/snake-*.svg assets/focus-*.svg README.md
           if git diff --cached --quiet; then
             echo "Artwork is already current."
             exit 0

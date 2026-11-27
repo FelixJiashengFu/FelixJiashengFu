@@ -59,27 +59,27 @@
 <td colspan="2" align="center"><b>On the bench now · 最近在专注的</b><br><sub>The four repositories I pushed to most recently — refreshed daily.</sub></td>
 </tr>
 <tr>
-<td width="50%"><a href="https://github.com/FelixJiashengFu/chem-research-molastria"><picture>
+<td width="50%"><a href="https://github.com/FelixJiashengFu/bio-rs"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/focus-1-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/focus-1-light.svg">
-  <img alt="chem-research-molastria — MolAstria · 计算化学研究导航：2,600+ 条资源每周更新、25 章讲解手册、46 种期刊投稿指南、27 个科学大模型、15 个机器学习势在线计算。A computational chemistry atlas: 2,600+ resources refreshed weekly, a 25-chapter handbook, 46 journals, 27 science models, a Model API with 15 ML potentials, quantum chemistry in the browser and an AI lab." src="./assets/focus-1-light.svg" width="100%">
+  <img alt="bio-rs — " src="./assets/focus-1-light.svg" width="100%">
 </picture></a></td>
-<td width="50%"><a href="https://github.com/FelixJiashengFu/nmr-walkthrough"><picture>
+<td width="50%"><a href="https://github.com/FelixJiashengFu/chem-research-molastria"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/focus-2-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/focus-2-light.svg">
-  <img alt="nmr-walkthrough — Click-to-advance bilingual NMR walkthroughs: MCP server + Agent Skill, real sourced data only" src="./assets/focus-2-light.svg" width="100%">
+  <img alt="chem-research-molastria — MolAstria · 计算化学研究导航：2,600+ 条资源每周更新、25 章讲解手册、46 种期刊投稿指南、27 个科学大模型、15 个机器学习势在线计算。A computational chemistry atlas: 2,600+ resources refreshed weekly, a 25-chapter handbook, 46 journals, 27 science models, a Model API with 15 ML potentials, quantum chemistry in the browser and an AI lab." src="./assets/focus-2-light.svg" width="100%">
 </picture></a></td>
 </tr>
 <tr>
-<td width="50%"><a href="https://github.com/FelixJiashengFu/decoupled-gtl"><picture>
+<td width="50%"><a href="https://github.com/FelixJiashengFu/chem-rs"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/focus-3-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/focus-3-light.svg">
-  <img alt="decoupled-gtl — Decoupled GNN transfer learning for extrapolative materials property prediction" src="./assets/focus-3-light.svg" width="100%">
+  <img alt="chem-rs — Rust (PyO3) acceleration for the Python chemistry stack — bit-identical drop-ins for 35+ libraries (formulas, SMILES/SELFIES, MS, NMR, materials, QC tooling, free energy) · 为 Python 化学生态提供逐位一致的 Rust 加速" src="./assets/focus-3-light.svg" width="100%">
 </picture></a></td>
-<td width="50%"><a href="https://github.com/FelixJiashengFu/figwright"><picture>
+<td width="50%"><a href="https://github.com/FelixJiashengFu/dwsim2idaes"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/focus-4-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/focus-4-light.svg">
-  <img alt="figwright — Figwright 图匠 — open-source AI figure workshop for research: text or sketch to editable SVG/PPTX, flowcharts, data plots, bitmap vectorizer. Bring your own model." src="./assets/focus-4-light.svg" width="100%">
+  <img alt="dwsim2idaes — Convert DWSIM flowsheets (.dwxmz/.dwxml) into equation-oriented IDAES/Pyomo models · 把 DWSIM 流程文件自动转换成方程导向的 IDAES/Pyomo 模型" src="./assets/focus-4-light.svg" width="100%">
 </picture></a></td>
 </tr>
 <!-- focus:end -->
